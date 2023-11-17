@@ -1,17 +1,40 @@
-import React from 'react'
+import { Box, Grid, Paper } from '@mui/material'
+import SignupImg from '../../assets/Signup-image.svg'
 import './Signup.scss'
+import SignupForm from './SignupForm'
+import SignupHeader from './SignupHeader'
 
 const Signup = () => {
   return (
     <div className='signup__section'>
-      <div className='header__text'>
-        <div className='lead__text'>header text1</div>
-        <div className='sub__text'>header text2</div>
-      </div>
-      <div className='main__signup__section'>
-        <div className='signup__image'>Image</div>
-        <div className='signup__form'>Form</div>
-      </div>
+      <SignupHeader />
+      <Grid
+        container
+        sx={{
+          justifyContent: 'start',
+          alignItems: 'start',
+          minHeight: '55vh',
+          marginTop: '15px',
+        }}
+      >
+        <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
+          <Box
+            component='img'
+            sx={{
+              height: 233,
+              width: 350,
+              maxHeight: { xs: 233, md: 233 },
+              maxWidth: { xs: 350, md: 350 },
+              padding: '20px',
+            }}
+            alt='The house from the offer.'
+            src={SignupImg}
+          />
+        </Grid>
+        <Grid item xs={12} md={6} sx={{ textAlign: 'center' }}>
+          <SignupForm onSubmit={() => {}} />
+        </Grid>
+      </Grid>
     </div>
   )
 }
